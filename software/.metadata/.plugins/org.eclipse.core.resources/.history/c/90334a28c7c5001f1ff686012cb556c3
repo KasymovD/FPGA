@@ -1,0 +1,46 @@
+#include "system.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#define HEX_ADDR        0x040410c0
+#define LEDR_ADDR       0x040410b0
+#define SWITCHES_ADDR   0x04041080
+
+void main() {
+    volatile unsigned int *HEX = (unsigned int *) HEX_ADDR;
+    volatile unsigned int *LEDR = (unsigned int *) LEDR_ADDR;
+    volatile unsigned int *SWITCHES = (unsigned int *) SWITCHES_ADDR;
+
+    unsigned int switches, i;
+
+    while (1) {
+        switches = *SWITCHES;
+
+        if (switches & 0x1) {
+            for (i = 0; i <= 0xFFF; i++) {
+                *HEX = i;
+                *LEDR = i;
+                usleep(100000);
+            }
+        } else if (switches & 0x2) {
+            *LEDR = switches;
+            *HEX = switches * 16;
+            usleep(500000);
+        } else if (switches & 0x4) {
+            *HEX = 0xA9F3F3;
+            *LEDR = 0xA9F3F3;
+            usleep(500000);
+        } else if (switches & 0x8) {
+            for (i = 0; i < 5; i++) {
+                *LEDR = 0xFF;
+                usleep(250000);
+                *LEDR = 0x00;
+                usleep(250000);
+            }
+        } else {
+            *HEX = 0x0;
+            *LEDR = 0x0;
+        }
+    }
+}

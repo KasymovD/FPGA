@@ -1,0 +1,16 @@
+#include "system.h"
+#include <stdio.h>
+#include <unistd.h>
+
+void main() {
+    volatile unsigned int *SW = (unsigned int *) PIO_2_BASE;
+    volatile unsigned int *LEDR = (unsigned int *) PIO_1_BASE;
+
+    while (1) {
+        unsigned int switch_state = *SW;
+        *LEDR = switch_state;
+
+        printf("Switch state: %x\n", switch_state);
+        usleep(500000);
+    }
+}

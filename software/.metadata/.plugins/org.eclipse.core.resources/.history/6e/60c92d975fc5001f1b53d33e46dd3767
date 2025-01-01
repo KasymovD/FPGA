@@ -1,0 +1,13 @@
+#include "system.h"
+#include <stdio.h>
+#include <unistd.h>
+
+void main() {
+    volatile unsigned int *KEY = (unsigned int *) PIO_2_BASE;
+
+    while (1) {
+        unsigned int key_state = *KEY;
+        printf("KEY[3:0] state: %x\n", key_state);
+        usleep(500000);
+    }
+}

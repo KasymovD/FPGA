@@ -1,0 +1,31 @@
+#include "system.h"
+#include <stdio.h>
+#include <unistd.h>
+
+#define LEDR_ADDR       0x040410b0
+#define SWITCHES_ADDR   0x04041080
+
+void main() {
+    volatile unsigned int *LEDR = (unsigned int *) LEDR_ADDR;
+    volatile unsigned int *SWITCHES = (unsigned int *) SWITCHES_ADDR;
+
+    unsigned int current_value = 0;
+    unsigned int previous_sw1_state = 0;
+
+    while (1) {
+        unsigned int switches = *SWITCHES;
+
+        if (switches & 0x1) {
+            current_value += 1;
+            *LEDR = current_value;
+            usleep(300000);
+        }
+
+        if ((switches & 0x2) && !(previous_sw1_state & 0x2)) {
+            current_value += 1;
+            *LEDR = current_value;
+        }
+
+        previous_sw1_state = switches;
+    }
+}

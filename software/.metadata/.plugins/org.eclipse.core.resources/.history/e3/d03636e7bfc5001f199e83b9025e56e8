@@ -1,0 +1,32 @@
+#include "system.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+// Define the addresses for the devices (ensure these match your Qsys configuration)
+#define HEX_ADDR        0x040410c0
+#define SWITCHES_ADDR   0x04041080
+#define CONTROL_ADDR    0x04041090
+
+void main() {
+    printf("Hello World\n");
+
+    // Pointers to memory-mapped I/O
+    volatile unsigned int *HEX = (unsigned int *) HEX_ADDR;
+    volatile unsigned int *CONTROL = (unsigned int *) CONTROL_ADDR;
+
+    unsigned int control;
+
+    while (1) {
+        control = *CONTROL & 0x3; // Read SW8 and SW9 (2 bits)
+
+        if (control == 3) { // SW8=1 and SW9=1
+            *HEX = 0xABCDEF; // Display ABCDEF on HEX display
+            printf("HEX Display: ABCDEF\n");
+        } else {
+            *HEX = 0; // Turn off HEX display
+        }
+
+        usleep(500000); // Delay for 500 ms
+    }
+}

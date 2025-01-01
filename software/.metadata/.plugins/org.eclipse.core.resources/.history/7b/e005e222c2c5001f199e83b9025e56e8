@@ -1,0 +1,38 @@
+#include "system.h"
+#include <stdio.h>
+#include <unistd.h>
+
+#define HEX_ADDR        0x040410c0
+#define LEDR_ADDR       0x040410b0
+#define ADC_ADDR        0x04041060
+
+void main() {
+    printf("Reading Temperature from LM35\n");
+
+    // Pointers to memory-mapped I/O
+    volatile unsigned int *HEX = (unsigned int *) HEX_ADDR;
+    volatile unsigned int *LEDR = (unsigned int *) LEDR_ADDR;
+    volatile unsigned int *ADC = (unsigned int *) ADC_ADDR;
+
+    unsigned int adc_value;
+    float temperature;
+
+    while (1) {
+        // Read the ADC value
+        adc_value = *ADC & 0xFFF; // Assuming 12-bit ADC resolution
+
+        // Convert ADC value to temperature
+        // ADC range: 0-4095, Voltage range: 0-3.3V
+        temperature = (adc_value * 3.3 / 4096.0) * 100.0; // LM35 outputs 10 mV/¢XC
+
+        // Display temperature on HEX and LEDs
+        *HEX = (unsigned int) temperature;  // Display integer part of temperature on HEX
+        *LEDR = (unsigned int) temperature; // Display binary representation on LEDs
+
+        // Print the temperature to the console
+        printf("Temperature: %.2f ¢XC\n", temperature);
+
+        // Delay for 500 ms
+        usleep(500000);
+    }
+}

@@ -1,0 +1,201 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate D:\em_system\nios-sdram-master\nios-sdram-master\platformniossdram.qsys --block-symbol-file --output-directory=D:\em_system\nios-sdram-master\nios-sdram-master\platformniossdram --family="Cyclone V" --part=5CSXFC6D6F31C6
+Progress: Loading nios-sdram-master/platformniossdram.qsys
+Progress: Reading input file
+Progress: Adding adc_0 [altera_up_avalon_adc 18.0]
+Progress: Parameterizing module adc_0
+Progress: Adding clk_0 [clock_source 18.1]
+Progress: Parameterizing module clk_0
+Progress: Adding control [altera_avalon_pio 18.1]
+Progress: Parameterizing module control
+Progress: Adding hex [altera_avalon_pio 18.1]
+Progress: Parameterizing module hex
+Progress: Adding jtag_uart_0 [altera_avalon_jtag_uart 18.1]
+Progress: Parameterizing module jtag_uart_0
+Progress: Adding keys [altera_avalon_pio 18.1]
+Progress: Parameterizing module keys
+Progress: Adding leds [altera_avalon_pio 18.1]
+Progress: Parameterizing module leds
+Progress: Adding nios2_gen2_0 [altera_nios2_gen2 18.1]
+Progress: Parameterizing module nios2_gen2_0
+Progress: Adding onchip_memory2_0 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module onchip_memory2_0
+Progress: Adding pll_0 [altera_pll 18.1]
+Progress: Parameterizing module pll_0
+Progress: Adding sdram [altera_avalon_new_sdram_controller 18.1]
+Progress: Parameterizing module sdram
+Progress: Adding switches [altera_avalon_pio 18.1]
+Progress: Parameterizing module switches
+Progress: Adding timer_0 [altera_avalon_timer 18.1]
+Progress: Parameterizing module timer_0
+Progress: Adding timer_1 [altera_avalon_timer 18.1]
+Progress: Parameterizing module timer_1
+Progress: Adding timer_2 [altera_avalon_timer 18.1]
+Progress: Parameterizing module timer_2
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: platformniossdram.control: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: platformniossdram.jtag_uart_0: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: platformniossdram.keys: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: platformniossdram.pll_0: The legal reference clock frequency is 5.0 MHz..800.0 MHz
+Warning: platformniossdram.pll_0: Able to implement PLL - Actual settings differ from Requested settings
+Info: platformniossdram.sdram: SDRAM Controller will only be supported in Quartus Prime Standard Edition in the future release.
+Info: platformniossdram.switches: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate D:\em_system\nios-sdram-master\nios-sdram-master\platformniossdram.qsys --synthesis=VERILOG --output-directory=D:\em_system\nios-sdram-master\nios-sdram-master\platformniossdram\synthesis --family="Cyclone V" --part=5CSXFC6D6F31C6
+Progress: Loading nios-sdram-master/platformniossdram.qsys
+Progress: Reading input file
+Progress: Adding adc_0 [altera_up_avalon_adc 18.0]
+Progress: Parameterizing module adc_0
+Progress: Adding clk_0 [clock_source 18.1]
+Progress: Parameterizing module clk_0
+Progress: Adding control [altera_avalon_pio 18.1]
+Progress: Parameterizing module control
+Progress: Adding hex [altera_avalon_pio 18.1]
+Progress: Parameterizing module hex
+Progress: Adding jtag_uart_0 [altera_avalon_jtag_uart 18.1]
+Progress: Parameterizing module jtag_uart_0
+Progress: Adding keys [altera_avalon_pio 18.1]
+Progress: Parameterizing module keys
+Progress: Adding leds [altera_avalon_pio 18.1]
+Progress: Parameterizing module leds
+Progress: Adding nios2_gen2_0 [altera_nios2_gen2 18.1]
+Progress: Parameterizing module nios2_gen2_0
+Progress: Adding onchip_memory2_0 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module onchip_memory2_0
+Progress: Adding pll_0 [altera_pll 18.1]
+Progress: Parameterizing module pll_0
+Progress: Adding sdram [altera_avalon_new_sdram_controller 18.1]
+Progress: Parameterizing module sdram
+Progress: Adding switches [altera_avalon_pio 18.1]
+Progress: Parameterizing module switches
+Progress: Adding timer_0 [altera_avalon_timer 18.1]
+Progress: Parameterizing module timer_0
+Progress: Adding timer_1 [altera_avalon_timer 18.1]
+Progress: Parameterizing module timer_1
+Progress: Adding timer_2 [altera_avalon_timer 18.1]
+Progress: Parameterizing module timer_2
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: platformniossdram.control: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: platformniossdram.jtag_uart_0: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: platformniossdram.keys: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: platformniossdram.pll_0: The legal reference clock frequency is 5.0 MHz..800.0 MHz
+Warning: platformniossdram.pll_0: Able to implement PLL - Actual settings differ from Requested settings
+Info: platformniossdram.sdram: SDRAM Controller will only be supported in Quartus Prime Standard Edition in the future release.
+Info: platformniossdram.switches: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: platformniossdram: Generating platformniossdram "platformniossdram" for QUARTUS_SYNTH
+Info: Inserting clock-crossing logic between cmd_demux.src0 and cmd_mux.sink0
+Info: Inserting clock-crossing logic between cmd_demux.src4 and cmd_mux_004.sink0
+Info: Inserting clock-crossing logic between rsp_demux.src0 and rsp_mux.sink0
+Info: Inserting clock-crossing logic between rsp_demux_004.src0 and rsp_mux.sink4
+Info: adc_0: Starting Generation of ADC Controller for DE-series Board
+Info: adc_0: D:/em_system/app/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/altera_up_avalon_adv_adc.v C:/Users/User/AppData/Local/Temp/alt0086_168932700585700264.dir/0002_sopcgen/platformniossdram_adc_0.v
+Info: adc_0: "platformniossdram" instantiated altera_up_avalon_adc "adc_0"
+Info: control: Starting RTL generation for module 'platformniossdram_control'
+Info: control:   Generation command is [exec D:/em_system/app/quartus/bin64/perl/bin/perl.exe -I D:/em_system/app/quartus/bin64/perl/lib -I D:/em_system/app/quartus/sopc_builder/bin/europa -I D:/em_system/app/quartus/sopc_builder/bin/perl_lib -I D:/em_system/app/quartus/sopc_builder/bin -I D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/common -I D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=platformniossdram_control --dir=C:/Users/User/AppData/Local/Temp/alt0086_168932700585700264.dir/0005_control_gen/ --quartus_dir=D:/em_system/app/quartus --verilog --config=C:/Users/User/AppData/Local/Temp/alt0086_168932700585700264.dir/0005_control_gen//platformniossdram_control_component_configuration.pl  --do_build_sim=0  ]
+Info: control: Done RTL generation for module 'platformniossdram_control'
+Info: control: "platformniossdram" instantiated altera_avalon_pio "control"
+Info: hex: Starting RTL generation for module 'platformniossdram_hex'
+Info: hex:   Generation command is [exec D:/em_system/app/quartus/bin64/perl/bin/perl.exe -I D:/em_system/app/quartus/bin64/perl/lib -I D:/em_system/app/quartus/sopc_builder/bin/europa -I D:/em_system/app/quartus/sopc_builder/bin/perl_lib -I D:/em_system/app/quartus/sopc_builder/bin -I D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/common -I D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=platformniossdram_hex --dir=C:/Users/User/AppData/Local/Temp/alt0086_168932700585700264.dir/0006_hex_gen/ --quartus_dir=D:/em_system/app/quartus --verilog --config=C:/Users/User/AppData/Local/Temp/alt0086_168932700585700264.dir/0006_hex_gen//platformniossdram_hex_component_configuration.pl  --do_build_sim=0  ]
+Info: hex: Done RTL generation for module 'platformniossdram_hex'
+Info: hex: "platformniossdram" instantiated altera_avalon_pio "hex"
+Info: jtag_uart_0: Starting RTL generation for module 'platformniossdram_jtag_uart_0'
+Info: jtag_uart_0:   Generation command is [exec D:/em_system/app/quartus/bin64/perl/bin/perl.exe -I D:/em_system/app/quartus/bin64/perl/lib -I D:/em_system/app/quartus/sopc_builder/bin/europa -I D:/em_system/app/quartus/sopc_builder/bin/perl_lib -I D:/em_system/app/quartus/sopc_builder/bin -I D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/common -I D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=platformniossdram_jtag_uart_0 --dir=C:/Users/User/AppData/Local/Temp/alt0086_168932700585700264.dir/0007_jtag_uart_0_gen/ --quartus_dir=D:/em_system/app/quartus --verilog --config=C:/Users/User/AppData/Local/Temp/alt0086_168932700585700264.dir/0007_jtag_uart_0_gen//platformniossdram_jtag_uart_0_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart_0: Done RTL generation for module 'platformniossdram_jtag_uart_0'
+Info: jtag_uart_0: "platformniossdram" instantiated altera_avalon_jtag_uart "jtag_uart_0"
+Info: keys: Starting RTL generation for module 'platformniossdram_keys'
+Info: keys:   Generation command is [exec D:/em_system/app/quartus/bin64/perl/bin/perl.exe -I D:/em_system/app/quartus/bin64/perl/lib -I D:/em_system/app/quartus/sopc_builder/bin/europa -I D:/em_system/app/quartus/sopc_builder/bin/perl_lib -I D:/em_system/app/quartus/sopc_builder/bin -I D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/common -I D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=platformniossdram_keys --dir=C:/Users/User/AppData/Local/Temp/alt0086_168932700585700264.dir/0008_keys_gen/ --quartus_dir=D:/em_system/app/quartus --verilog --config=C:/Users/User/AppData/Local/Temp/alt0086_168932700585700264.dir/0008_keys_gen//platformniossdram_keys_component_configuration.pl  --do_build_sim=0  ]
+Info: keys: Done RTL generation for module 'platformniossdram_keys'
+Info: keys: "platformniossdram" instantiated altera_avalon_pio "keys"
+Info: leds: Starting RTL generation for module 'platformniossdram_leds'
+Info: leds:   Generation command is [exec D:/em_system/app/quartus/bin64/perl/bin/perl.exe -I D:/em_system/app/quartus/bin64/perl/lib -I D:/em_system/app/quartus/sopc_builder/bin/europa -I D:/em_system/app/quartus/sopc_builder/bin/perl_lib -I D:/em_system/app/quartus/sopc_builder/bin -I D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/common -I D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=platformniossdram_leds --dir=C:/Users/User/AppData/Local/Temp/alt0086_168932700585700264.dir/0009_leds_gen/ --quartus_dir=D:/em_system/app/quartus --verilog --config=C:/Users/User/AppData/Local/Temp/alt0086_168932700585700264.dir/0009_leds_gen//platformniossdram_leds_component_configuration.pl  --do_build_sim=0  ]
+Info: leds: Done RTL generation for module 'platformniossdram_leds'
+Info: leds: "platformniossdram" instantiated altera_avalon_pio "leds"
+Info: nios2_gen2_0: "platformniossdram" instantiated altera_nios2_gen2 "nios2_gen2_0"
+Info: onchip_memory2_0: Starting RTL generation for module 'platformniossdram_onchip_memory2_0'
+Info: onchip_memory2_0:   Generation command is [exec D:/em_system/app/quartus/bin64/perl/bin/perl.exe -I D:/em_system/app/quartus/bin64/perl/lib -I D:/em_system/app/quartus/sopc_builder/bin/europa -I D:/em_system/app/quartus/sopc_builder/bin/perl_lib -I D:/em_system/app/quartus/sopc_builder/bin -I D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/common -I D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=platformniossdram_onchip_memory2_0 --dir=C:/Users/User/AppData/Local/Temp/alt0086_168932700585700264.dir/0010_onchip_memory2_0_gen/ --quartus_dir=D:/em_system/app/quartus --verilog --config=C:/Users/User/AppData/Local/Temp/alt0086_168932700585700264.dir/0010_onchip_memory2_0_gen//platformniossdram_onchip_memory2_0_component_configuration.pl  --do_build_sim=0  ]
+Info: onchip_memory2_0: Done RTL generation for module 'platformniossdram_onchip_memory2_0'
+Info: onchip_memory2_0: "platformniossdram" instantiated altera_avalon_onchip_memory2 "onchip_memory2_0"
+Info: pll_0: "platformniossdram" instantiated altera_pll "pll_0"
+Info: sdram: Starting RTL generation for module 'platformniossdram_sdram'
+Info: sdram:   Generation command is [exec D:/em_system/app/quartus/bin64/perl/bin/perl.exe -I D:/em_system/app/quartus/bin64/perl/lib -I D:/em_system/app/quartus/sopc_builder/bin/europa -I D:/em_system/app/quartus/sopc_builder/bin/perl_lib -I D:/em_system/app/quartus/sopc_builder/bin -I D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/common -I D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=platformniossdram_sdram --dir=C:/Users/User/AppData/Local/Temp/alt0086_168932700585700264.dir/0012_sdram_gen/ --quartus_dir=D:/em_system/app/quartus --verilog --config=C:/Users/User/AppData/Local/Temp/alt0086_168932700585700264.dir/0012_sdram_gen//platformniossdram_sdram_component_configuration.pl  --do_build_sim=0  ]
+Info: sdram: Done RTL generation for module 'platformniossdram_sdram'
+Info: sdram: "platformniossdram" instantiated altera_avalon_new_sdram_controller "sdram"
+Info: timer_0: Starting RTL generation for module 'platformniossdram_timer_0'
+Info: timer_0:   Generation command is [exec D:/em_system/app/quartus/bin64//perl/bin/perl.exe -I D:/em_system/app/quartus/bin64//perl/lib -I D:/em_system/app/quartus/sopc_builder/bin/europa -I D:/em_system/app/quartus/sopc_builder/bin/perl_lib -I D:/em_system/app/quartus/sopc_builder/bin -I D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/common -I D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- D:/em_system/app/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=platformniossdram_timer_0 --dir=C:/Users/User/AppData/Local/Temp/alt0086_168932700585700264.dir/0013_timer_0_gen/ --quartus_dir=D:/em_system/app/quartus --verilog --config=C:/Users/User/AppData/Local/Temp/alt0086_168932700585700264.dir/0013_timer_0_gen//platformniossdram_timer_0_component_configuration.pl  --do_build_sim=0  ]
+Info: timer_0: Done RTL generation for module 'platformniossdram_timer_0'
+Info: timer_0: "platformniossdram" instantiated altera_avalon_timer "timer_0"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_005: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_006: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_007: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_008: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_009: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_010: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_011: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_012: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "platformniossdram" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: irq_mapper: "platformniossdram" instantiated altera_irq_mapper "irq_mapper"
+Info: rst_controller: "platformniossdram" instantiated altera_reset_controller "rst_controller"
+Info: cpu: Starting RTL generation for module 'platformniossdram_nios2_gen2_0_cpu'
+Info: cpu:   Generation command is [exec D:/em_system/app/quartus/bin64//eperlcmd.exe -I D:/em_system/app/quartus/bin64//perl/lib -I D:/em_system/app/quartus/sopc_builder/bin/europa -I D:/em_system/app/quartus/sopc_builder/bin/perl_lib -I D:/em_system/app/quartus/sopc_builder/bin -I D:/em_system/app/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I D:/em_system/app/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I D:/em_system/app/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I D:/em_system/app/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- D:/em_system/app/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.epl --name=platformniossdram_nios2_gen2_0_cpu --dir=C:/Users/User/AppData/Local/Temp/alt0086_168932700585700264.dir/0016_cpu_gen/ --quartus_bindir=D:/em_system/app/quartus/bin64/ --verilog --config=C:/Users/User/AppData/Local/Temp/alt0086_168932700585700264.dir/0016_cpu_gen//platformniossdram_nios2_gen2_0_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2024.12.29 14:51:18 (*) Starting Nios II generation
+Info: cpu: # 2024.12.29 14:51:18 (*)   Checking for plaintext license.
+Info: cpu: # 2024.12.29 14:51:18 (*)   Couldn't query license setup in Quartus directory D:/em_system/app/quartus/bin64/
+Info: cpu: # 2024.12.29 14:51:18 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: cpu: # 2024.12.29 14:51:18 (*)   LM_LICENSE_FILE environment variable is empty
+Info: cpu: # 2024.12.29 14:51:18 (*)   Plaintext license not found.
+Info: cpu: # 2024.12.29 14:51:18 (*)   No license required to generate encrypted Nios II/e.
+Info: cpu: # 2024.12.29 14:51:18 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2024.12.29 14:51:18 (*)   Creating all objects for CPU
+Info: cpu: # 2024.12.29 14:51:19 (*)   Generating RTL from CPU objects
+Info: cpu: # 2024.12.29 14:51:19 (*)   Creating plain-text RTL
+Info: cpu: # 2024.12.29 14:51:19 (*) Done Nios II generation
+Info: cpu: Done RTL generation for module 'platformniossdram_nios2_gen2_0_cpu'
+Info: cpu: "nios2_gen2_0" instantiated altera_nios2_gen2_unit "cpu"
+Info: nios2_gen2_0_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "nios2_gen2_0_data_master_translator"
+Info: adc_0_adc_slave_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "adc_0_adc_slave_translator"
+Info: nios2_gen2_0_data_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "nios2_gen2_0_data_master_agent"
+Info: adc_0_adc_slave_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "adc_0_adc_slave_agent"
+Info: adc_0_adc_slave_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "adc_0_adc_slave_agent_rsp_fifo"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: router_004: "mm_interconnect_0" instantiated altera_merlin_router "router_004"
+Info: router_006: "mm_interconnect_0" instantiated altera_merlin_router "router_006"
+Info: sdram_s1_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "sdram_s1_burst_adapter"
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: cmd_mux_002: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_002"
+Info: Reusing file D:/em_system/nios-sdram-master/nios-sdram-master/platformniossdram/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_demux_004: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_004"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file D:/em_system/nios-sdram-master/nios-sdram-master/platformniossdram/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
+Info: Reusing file D:/em_system/nios-sdram-master/nios-sdram-master/platformniossdram/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: sdram_s1_rsp_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "sdram_s1_rsp_width_adapter"
+Info: Reusing file D:/em_system/nios-sdram-master/nios-sdram-master/platformniossdram/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file D:/em_system/nios-sdram-master/nios-sdram-master/platformniossdram/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: crosser: "mm_interconnect_0" instantiated altera_avalon_st_handshake_clock_crosser "crosser"
+Info: Reusing file D:/em_system/nios-sdram-master/nios-sdram-master/platformniossdram/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: avalon_st_adapter_004: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter_004"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: error_adapter_0: "avalon_st_adapter_004" instantiated error_adapter "error_adapter_0"
+Info: platformniossdram: Done "platformniossdram" with 41 modules, 68 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

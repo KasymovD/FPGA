@@ -1,0 +1,64 @@
+#include "system.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#define HEX_ADDR        0x040410c0
+#define LEDR_ADDR       0x040410b0
+#define SWITCHES_ADDR   0x04041080
+
+unsigned int xor_cipher(unsigned int input, unsigned int key) {
+    return input ^ key;
+}
+
+void main() {
+    volatile unsigned int *HEX = (unsigned int *) HEX_ADDR;
+    volatile unsigned int *LEDR = (unsigned int *) LEDR_ADDR;
+    volatile unsigned int *SWITCHES = (unsigned int *) SWITCHES_ADDR;
+
+    unsigned int current_value = 0;
+    unsigned int stored_value = 0;
+    unsigned int prev_switches = 0;
+    unsigned int switches;
+    unsigned int cipher_key = 0x5A;
+
+    while (1) {
+        switches = *SWITCHES;
+
+        if ((prev_switches & 0x1) == 0 && (switches & 0x1)) {
+            current_value++;
+        }
+
+        if ((prev_switches & 0x8) == 0 && (switches & 0x8)) {
+            if (current_value > 0) {
+                current_value--;
+            }
+        }
+
+        if ((prev_switches & 0x10) == 0 && (switches & 0x10)) {
+            stored_value += current_value;
+        }
+
+        if (switches & 0x2) {
+            *LEDR = current_value;
+            *HEX = ((current_value / 1000 % 10) << 12) |
+                   ((current_value / 100 % 10) << 8) |
+                   ((current_value / 10 % 10) << 4) |
+                   (current_value % 10);
+        } else {
+            *LEDR = current_value;
+            *HEX = current_value;
+        }
+
+        if (switches & 0x4) {
+            unsigned int encrypted_value = xor_cipher(current_value, cipher_key);
+            *LEDR = encrypted_value;
+            *HEX = encrypted_value;
+            printf("Encrypted Value (XOR): %X\n", encrypted_value);
+            usleep(500000);
+        }
+
+        prev_switches = switches;
+        usleep(100000);
+    }
+}

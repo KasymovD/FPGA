@@ -1,0 +1,76 @@
+#include "system.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#define HEX_ADDR        0x040410c0
+#define LEDR_ADDR       0x040410b0
+#define SWITCHES_ADDR   0x04041080
+
+unsigned int encode_hex(unsigned int num) {
+    const unsigned int hex_codes[16] = {
+        0x3F, // 0
+        0x06, // 1
+        0x5B, // 2
+        0x4F, // 3
+        0x66, // 4
+        0x6D, // 5
+        0x7D, // 6
+        0x07, // 7
+        0x7F, // 8
+        0x6F, // 9
+        0x77, // A
+        0x7C, // b
+        0x39, // C
+        0x5E, // d
+        0x79, // E
+        0x71  // F
+    };
+    if(num < 16)
+        return hex_codes[num];
+    else
+        return 0;
+}
+
+int main() {
+    volatile unsigned int *HEX = (unsigned int *) HEX_ADDR;
+    volatile unsigned int *LEDR = (unsigned int *) LEDR_ADDR;
+    volatile unsigned int *SWITCHES = (unsigned int *) SWITCHES_ADDR;
+
+    unsigned int switches;
+    unsigned int a, b, operation, result;
+
+    while (1) {
+        switches = *SWITCHES;
+
+        a = switches & 0xF;
+        b = (switches >> 4) & 0xF;
+        operation = (switches >> 8) & 0x3;
+
+        switch (operation) {
+            case 0:
+                result = a + b;
+                break;
+            case 1:
+                result = a - b;
+                break;
+            case 2:
+                result = a * b;
+                break;
+            case 3:
+                result = (b != 0) ? a / b : 0;
+                break;
+            default:
+                result = 0;
+                break;
+        }
+
+        *LEDR = result;
+        *HEX = encode_hex(result & 0xF);
+
+        printf("A: %u, B: %u, Operation: %u, Result: %u\n", a, b, operation, result);
+
+        usleep(100000);
+    }
+    return 0;
+}

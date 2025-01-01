@@ -1,0 +1,6 @@
+17:09:45 **** Clean-only build of configuration Nios II for project dosa_bsp ****
+make clean 
+[BSP clean complete]
+
+17:09:46 Build Finished (took 223ms)
+

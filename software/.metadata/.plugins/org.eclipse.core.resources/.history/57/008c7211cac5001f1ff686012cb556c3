@@ -1,0 +1,53 @@
+#include "system.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#define HEX_ADDR        0x040410c0
+#define LEDR_ADDR       0x040410b0
+#define SWITCHES_ADDR   0x04041080
+
+unsigned int hash_function(unsigned int input) {
+    unsigned int hash = input;
+    hash = ((hash >> 3) ^ (hash << 5)) + 0x1234;
+    return hash & 0xFFFFFF;
+}
+
+void main() {
+    volatile unsigned int *HEX = (unsigned int *) HEX_ADDR;
+    volatile unsigned int *LEDR = (unsigned int *) LEDR_ADDR;
+    volatile unsigned int *SWITCHES = (unsigned int *) SWITCHES_ADDR;
+
+    unsigned int current_value = 0;
+    unsigned int prev_switches = 0;
+    unsigned int switches;
+    unsigned int hash_value;
+
+    while (1) {
+        switches = *SWITCHES;
+
+        if (switches & 0x1) {
+            current_value++;
+            usleep(200000);
+        }
+
+        if ((prev_switches & 0x2) == 0 && (switches & 0x2)) {
+            current_value++;
+        }
+
+        if (switches & 0x4) {
+            hash_value = hash_function(current_value);
+            *LEDR = hash_value;
+            *HEX = hash_value;
+            printf("Original Value: %d, Hashed Value: %X\n", current_value, hash_value);
+            usleep(500000);
+        } else {
+            *LEDR = current_value;
+            *HEX = current_value;
+        }
+
+        prev_switches = switches;
+
+        usleep(100000);
+    }
+}

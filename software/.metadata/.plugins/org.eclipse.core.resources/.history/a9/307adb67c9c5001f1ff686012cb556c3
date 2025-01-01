@@ -1,0 +1,55 @@
+#include "system.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#define HEX_ADDR        0x040410c0
+#define LEDR_ADDR       0x040410b0
+#define SWITCHES_ADDR   0x04041080
+#define KEYS_ADDR       0x04041070
+
+unsigned int hash_function(unsigned int value) {
+    value = ((value << 5) + value) ^ 0x5A5A;
+    return value & 0xFFFF;
+}
+
+void main() {
+    volatile unsigned int *HEX = (unsigned int *) HEX_ADDR;
+    volatile unsigned int *LEDR = (unsigned int *) LEDR_ADDR;
+    volatile unsigned int *SWITCHES = (unsigned int *) SWITCHES_ADDR;
+    volatile unsigned int *KEYS = (unsigned int *) KEYS_ADDR;
+
+    unsigned int current_value = 0;
+    unsigned int prev_switches = 0;
+    unsigned int prev_keys = 0;
+    unsigned int switches, keys;
+
+    while (1) {
+        switches = *SWITCHES;
+        keys = *KEYS;
+
+        if (switches & 0x1) {
+            current_value++;
+            usleep(200000);
+        }
+
+        if ((prev_switches & 0x2) == 0 && (switches & 0x2)) {
+            current_value++;
+        }
+
+        if ((prev_keys & 0x4) == 0 && (keys & 0x4)) {
+            unsigned int hashed_value = hash_function(current_value);
+            *LEDR = hashed_value;
+            *HEX = hashed_value;
+            printf("Hash: %X\n", hashed_value);
+        } else {
+            *LEDR = current_value;
+            *HEX = current_value;
+        }
+
+        prev_switches = switches;
+        prev_keys = keys;
+
+        usleep(100000);
+    }
+}

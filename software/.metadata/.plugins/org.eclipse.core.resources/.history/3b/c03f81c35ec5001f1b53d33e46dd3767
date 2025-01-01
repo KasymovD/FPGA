@@ -1,0 +1,25 @@
+/*
+ * dosa.c
+ *
+ *  Created on: Dec 29, 2024
+ *      Author: User
+ */
+
+#include "system.h"
+#include <stdio.h>
+#include <unistd.h>
+
+void main() {
+    volatile unsigned int *LEDR = (unsigned int *) PIO_1_BASE;
+    volatile unsigned int *KEY = (unsigned int *) PIO_2_BASE;
+
+    while (1) {
+        unsigned int key_state = *KEY;
+        if ((key_state & 0x2) == 0) {
+            *LEDR = 0x09306A;
+        } else if ((key_state & 0x1) == 0) {
+            *LEDR = 0;
+        }
+        usleep(100000);
+    }
+}
