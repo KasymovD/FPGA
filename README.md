@@ -34,29 +34,58 @@ The program interacts with three key hardware components:
 
 Each switch has a unique function, outlined below:
 
-`API_KEY` 
-`API_KEY` 
-`API_KEY` 
-`API_KEY` 
-`API_KEY` 
-`API_KEY` 
-`API_KEY` 
+Switch (Hex) -> Function
 
-### 4. Health Exercises (健康)
+`0x01` Increment the current value
 
-- Provides a Carousel Template with exercise suggestions for different body parts (biceps, legs, back, chest).
+`0x08` Decrement the current value
 
-- Each exercise includes:
+`0x10` Multiply the current value by 2
 
-    * A thumbnail image.
+`0x20` Divide the current value by 2
 
-    * A description.
+`0x80` Generate a pseudo-random number
 
-    * A link to a demonstration video.
+`0x100` & `0x200` Reverse the digits of the current value
 
-### 5. Quiz (小測驗)
+`0x40` Toggle blinking mode
 
-* A fun interactive quiz with multiple-choice questions.
+`0x04` Encrypt the current value with XOR cipher
 
-* Each question is presented with Quick Reply buttons for answers.
+`0x02` Display the current value in formatted HEX
+
+![Image](lib/Demo)
+
+### Functions
+
+`xor_cipher(unsigned int input, unsigned int key)`
+
+Encrypts the input value using a simple XOR cipher with the provided key.
+
+`generate_random()`
+
+Generates a pseudo-random number using a deterministic formula.
+
+`reverse_digits(unsigned int n)`
+
+Reverses the digits of the input number.
+
+## Reverses the digits of the input number.
+
+1. Initialization:
+- The program initializes memory-mapped registers for the HEX display, LEDs, and switches.
+
+- A `current_value` variable is used to store and modify the value displayed.
+
+2. Switch Handling:
+
+- The program continuously reads switch values.
+
+- It checks for state changes (i.e., when a switch is turned on or off) and performs operations accordingly.
+
+3. Output Updates:
+
+- The program updates the LED and HEX display values based on the selected operation.
+
+- It uses `usleep()` delays to provide smooth transitions and prevent bounce effects.
 
