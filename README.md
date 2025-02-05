@@ -54,7 +54,7 @@ Switch (Hex) -> Function
 
 `0x02` Display the current value in formatted HEX
 
-![Image](lib/Demo)
+![Image](lib/Demo.png)
 
 ### Functions
 
