@@ -89,3 +89,12 @@ Reverses the digits of the input number.
 
 - It uses `usleep()` delays to provide smooth transitions and prevent bounce effects.
 
+
+## Potential Improvements
+
+- Implement switch debouncing to improve reliability.
+
+- Optimize HEX display formatting for better readability.
+
+- Extract repetitive code into functions for better maintainability.
+
